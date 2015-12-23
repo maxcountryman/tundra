@@ -1,0 +1,39 @@
+[
+ ;; Poll Entity.
+ {:db/id #db/id[:db.part/db]
+  :db/ident :poll/created
+  :db/valueType :db.type/instant
+  :db/cardinality :db.cardinality/one
+  :db/doc "A poll's creation timestamp."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :poll/question
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "A poll's question."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :poll/answers
+  :db/isComponent true
+  :db/valueType :db.type/ref
+  :db/cardinality :db.cardinality/many
+  :db/doc "A poll's answers."
+  :db.install/_attribute :db.part/db}
+
+ ;; Answer Entity.
+ {:db/id #db/id[:db.part/db]
+  :db/ident :answer/text
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one
+  :db/doc "An answer's text."
+  :db.install/_attribute :db.part/db}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :answer/votes
+  :db/valueType :db.type/long
+  :db/cardinality :db.cardinality/one
+  :db/doc "An answer's vote counter."
+  :db.install/_attribute :db.part/db}
+]
